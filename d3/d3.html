@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="../node_modules/d3/build/d3.js"></script>
+</head>
+<body>
+<p>pp</p>
+
+<script>
+  var paragraphs = document.getElementsByTagName("p");
+  for (var i = 0; i < paragraphs.length; i++) {
+    var paragraph = paragraphs.item(i);
+    paragraph.style.setProperty("color", "white", null);
+  }
+
+  d3.selectAll("p").style("color", "white");
+
+  d3.select("body").style("background-color", "black");
+
+
+</script>
+</body>
+</html>
