@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edge</title>
+</head>
+
+<style>
+    body{
+        text-align: center;
+
+    }
+    #canvas{
+        width: 300px;
+        margin-top: 200px;
+    }
+</style>
+<body>
+
+<canvas id="canvas" width="600" height="600"></canvas>
+
+
+
+
+
+<script>
+    var canvas = document.getElementById('canvas');
+
+
+    if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');
+        ctx.beginPath();
+        ctx.arc(300, 300, 150, 0, Math.PI * 2, true); // Outer circle
+
+        ctx.stroke();
+    }
+</script>
+</body>
+</html>
