@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width,height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="../node_modules/d3/build/d3.js"></script>
+</head>
+<body>
+
+
+<script>
+  drewChart();
+
+
+  function drewChart() {
+
+    class Px {
+      constructor() {
+        this.desWidth = 750;
+        this.deviceWidth = document.documentElement.clientWidth;
+      }
+      px(num) {
+
+        return num * this.desWidth / this.deviceWidth
+      }
+    }
+    var pxIntance;
+    var px = (function(){
+
+      pxIntance = new Px();
+
+      console.log(pxIntance)
+
+      return pxIntance.px
+    }());
+    console.log(px)
+
+
+    var width = px(160);
+    var height = px(80);
+
+    // Sample data points to draw a line
+    // Each data point has an x and y coordinate value
+    var data = [
+      {x: 0, y: 3454},
+      {x: 1, y: 4566},
+      {x: 2, y: 7841},
+      {x: 3, y: 6520},
+      {x: 4, y: 7520},
+      {x: 5, y: 10200},
+    ];
+
+    var d3Body = d3.select("body");
+
+
+    var svgContainer = d3Body
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height)
+      .style("border", "1px solid");
+
+    var defsContainer = svgContainer.append("defs");
+
+    var linearGradientContainer = defsContainer.append("linearGradient")
+      .attr("id", 'grad');
+
+    linearGradientContainer
+      .append("stop")
+      .attr("stop-color", '#ff8265');
+
+    linearGradientContainer
+      .append("stop")
+      .attr("stop-color", '#ff2a43')
+      .attr("offset", '100%');
+
+
+    var xScale = d3.scaleLinear()
+      .domain([0, 5])
+      .range([0, width]);
+
+
+    var yScale = d3.scaleLinear()
+      .domain([d3.max(data.map(n => n.y)) * 1.5, 0])
+      .range([0, height]);
+
+
+    var line = d3.line()
+      .x(function (d) {
+        return xScale(d.x);
+      })
+      .y(function (d) {
+        return yScale(d.y);
+      });
+
+    drewLine(30, 0, 30, 100)
+
+    // Create a path element and set its d attribute value using the line generator created above
+
+
+    svgContainer.append("path")
+      .attr("d", line(data))
+      .attr("fill", "none")
+      .attr("stroke", "url(#grad)")
+      .attr("stroke-width", "1.5");
+
+
+    function drewLine(x1, y1, x2, y2) {
+
+      svgContainer.append("line")
+        .attr("x1", x1)
+        .attr("y1", y1)
+        .attr("x2", x2)
+        .attr("y2", y2)
+        .attr("stroke", "#eeeeee")
+        .attr("stroke-width", "0.5");
+    }
+
+
+  }
+
+
+</script>
+</body>
+</html>
