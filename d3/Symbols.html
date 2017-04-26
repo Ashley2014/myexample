@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>D3 Symbols</title>
+</head>
+<body>
+<div id="wrapper">
+</div>
+
+<script src="../node_modules/d3/build/d3.js"></script>
+<script>
+  var wrap = d3.select('#wrapper');
+
+  var svg= wrap.append('svg');
+
+  svg.attr('width',900).attr('height',600);
+
+  var arc = d3.symbol()
+  console.log(arc.type)
+
+
+  var data = [2.5,2,3,4,5,6];
+
+  var scale = d3.scaleLinear()
+  .domain([1,6])
+  .range([100,1000]);
+
+  var colorscale = d3.scaleLinear()
+  .domain([1,6])
+  .range(["red","steelblue"]);
+
+
+  var group = svg.append('g')
+  .attr('transform','translate('+ 200 +','+ 200 +')');
+
+  console.log(group)
+  var line = group.selectAll('path')
+  .data(data)
+  .enter()
+  .append('path')
+  .attr('d', d3.symbol()
+    .type(d=>d3.symbolTriangle)
+  .size(function(d){
+    return scale(d)
+  })
+  )
+  .attr('fill',function(d){ return colorscale(d); })
+  .attr('stroke','#000')
+  .attr('stroke-width',1)
+  .attr('transform',function(d,i){ return "translate("+(i*38)+","+(10)+")"; });
+
+
+
+</script>
+</body>
+</html>

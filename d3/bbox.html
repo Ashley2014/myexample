@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script src="../node_modules/d3/build/d3.js"></script>
+</head>
+<body>
+
+
+<script>
+  var svg = d3.select("body").append("svg")
+  .attr("width", 960)
+  .attr("height", 500);
+
+  var text = svg.append("text")
+  .attr("x", 480)
+  .attr("y", 250)
+  .attr("dy", ".35em")
+  .attr("text-anchor", "middle")
+  .style("font", "300 128px Helvetica Neue")
+  .text("Hello, getBBox!");
+
+  var bbox = text.node().getBBox();
+  console.log(text.node().getBBox())
+
+  var rect = svg.append("rect")
+  .attr("x", bbox.x)
+  .attr("y", bbox.y)
+  .attr("width", bbox.width)
+  .attr("height", bbox.height)
+  .style("fill", "#ccc")
+  .style("fill-opacity", ".3")
+  .style("stroke", "#666")
+  .style("stroke-width", "1.5px");
+</script>
+</body>
+</html>
