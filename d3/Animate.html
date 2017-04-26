@@ -34,7 +34,7 @@
   var x = d3.scaleLinear().domain([0, 10]).range([0, 700]);
   var y = d3.scaleLinear().domain([0, 10]).range([10, 290]);
 
-
+  manifest="/performance/assets/manifest.appcache"
   var line = d3.line()
 //  .interpolate("cardinal")
   .x(function(d,i) {return x(i);})

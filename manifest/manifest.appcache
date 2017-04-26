@@ -1,0 +1,23 @@
+CACHE MANIFEST
+# 2017-04-26 v1.4
+
+# css
+# /performance/assets/mint.ui.min.css
+
+# js
+# https://cdn.bootcss.com/urljs/2.3.1/url.min.js
+# https://at.alicdn.com/t/font_f0tjhnuxuqjv2t9.js
+//cdn.bootcss.com/babel-polyfill/6.23.0/polyfill.min.js
+# https://cdn.bootcss.com/axios/0.16.1/axios.min.js
+# https://cdn.bootcss.com/vuex/2.2.1/vuex.min.js
+# https://cdn.bootcss.com/vue/2.2.4/vue.min.js
+# https://cdn.bootcss.com/vue-router/2.3.0/vue-router.min.js
+# https://cdn.bootcss.com/d3/4.8.0/d3.min.js
+# https://cdn.rawgit.com/ElemeFE/mint-ui/master/lib/index.js
+
+# NETWORK 表示 以下文件不被缓存, * 表示 所有文件
+NETWORK:
+*
+
+# 断网情况下 404.html 代替  /html5/ 目录中的所有文件
+FALLBACK:
