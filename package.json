@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/Ashley2014/myexample#readme",
   "devDependencies": {
-    "d3": "^4.7.4"
+    "d3": "^4.7.4",
+    "express": "^4.15.2"
   },
   "dependencies": {
     "lodash": "^4.17.4"
