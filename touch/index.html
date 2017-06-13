@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html
+
+        {
+            /*-ms-content-zooming: none; !* Disables zooming *!*/
+            /*touch-action: none;   !* Disable any special actions on tap/touch *!*/
+            height: 100%;
+        }
+        body{
+            height: 100%;
+        }
+        #b{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        #a{
+            width: 500px;
+            height: 500px;
+            background-color: #f88;
+
+
+        }
+        #c{
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="b"><div id="a">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae earum enim eum ex explicabo facere fugiat magni nihil odit porro praesentium quo quod, rem repellat sapiente sed suscipit veritatis voluptate!
+
+</div></div>
+<div id="c"></div>
+
+<script>
+  //    window.addEventListener('resize',function (event) {
+  //      event.preventDefault();
+  //      console.info('resize')
+  //    })
+  //    document.addEventListener('touchstart', function(event){
+  //      console.log(event)
+  //      event.preventDefault();
+  //    },{passive:false});
+  //    document.addEventListener('touchstart', function(event){
+  //      console.log(event)
+  //    });
+  //
+  //    document.addEventListener('touchmove', function(event){
+  //      console.log(event)
+  //    });
+  document.addEventListener('touchstart', function(event){
+    if(event.touches.length > 1){
+      event.preventDefault();
+    }
+  },{passive:false});
+
+  document.getElementById('a').addEventListener('touchstart', function(event){
+    console.log('touchstart',event)
+  })
+  document.getElementById('a').addEventListener('touchmove', function(event){
+    console.log('touchmove',event)
+  })
+
+</script>
+
+</body>
+</html>
