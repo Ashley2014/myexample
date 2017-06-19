@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #banner{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="banner"></div>
+
+<script>
+    a()
+
+
+
+  function a(e, t, n) {
+    "use strict";
+    var r = n(1)
+      , i = n.n(r)
+      , o = n(413)
+      , a = n.n(o)
+      , s = n(628)
+      , u = (n.n(s),
+      n(31))
+      , l = (n.n(u),
+      n(707))
+      , c = n(709)
+      , d = n.n(c)
+      , h = n(13)
+      , p = function() {
+      function e() {
+        f.aspect = window.innerWidth / window.innerHeight,
+          f.updateProjectionMatrix(),
+          _.setSize(window.innerWidth, window.innerHeight)
+      }
+      function t() {
+        var e = document.createElement("canvas");
+        e.width = 16,
+          e.height = 16;
+        var t = e.getContext("2d")
+          , n = t.createRadialGradient(e.width / 2, e.height / 2, 0, e.width / 2, e.height / 2, e.width / 2);
+        return n.addColorStop(0, "rgba(255, 255, 255, 0.75)"),
+          n.addColorStop(.5, "rgba(255, 255, 255, 0.5)"),
+          n.addColorStop(1, "rgba(0, 0, 0, 0)"),
+          t.fillStyle = n,
+          t.fillRect(0, 0, e.width, e.height),
+          e
+      }
+      function r(e, t) {
+        var n = 4e3 * Math.random() - 2e3
+          , i = 1e3 * Math.random() - 500;
+        e.position.set(n, i, 0),
+          e.visible = !1,
+          e.scale.y = 12 * Math.random() + 6,
+          e.scale.x = e.scale.y,
+          new d.a.Tween(e).delay(t).to({}, 2500).onComplete(function() {
+            return r(e, t)
+          }).start(),
+          setTimeout(function() {
+            e.visible = !0
+          }, t),
+          new d.a.Tween(e.position).delay(t).to({
+            x: n,
+            y: i,
+            z: 4e3 * Math.random()
+          }, 2500).start(),
+          new d.a.Tween(e.scale).delay(t).to({
+            x: .01,
+            y: .01
+          }, 2500).start()
+      }
+      function o() {
+        v = requestAnimationFrame(o),
+          s()
+      }
+      function s() {
+        d.a.update(),
+          f.lookAt(m.position),
+          _.render(m, f)
+      }
+      function c(e) {
+        "down" == (e.deltaY < 0 ? "down" : "up") && n.i(h.m)() <= 100 && (g.off("mousewheel", c),
+          g.on("mousewheel", p),
+          a()({
+            selector: "#report",
+            duration: 400,
+            offset: 70,
+            callback: function() {
+              g.on("mousewheel", c),
+                g.off("mousewheel", p)
+            }
+          }))
+      }
+      function p(e) {
+        e.preventDefault()
+      }
+      var f = void 0
+        , m = void 0
+        , _ = void 0
+        , y = void 0
+        , g = i()(window);
+      !function() {
+        f = new l.a(75,window.innerWidth / window.innerHeight,1,2e3),
+          f.position.z = 1e3,
+          m = new l.b;
+        for (var n = new l.c({
+          map: new l.d(t()),
+          blending: l.e
+        }), o = 0; o < 300; o += 1)
+          y = new l.f(n),
+            r(y, 10 * o),
+            m.add(y);
+        _ = new l.g,
+          _.setClearColor(0),
+          _.setPixelRatio(window.devicePixelRatio),
+          _.setSize(window.innerWidth, window.innerHeight),
+          i()("#banner").append(_.domElement),
+          window.addEventListener("resize", e, !1)
+      }(),
+        o();
+      var v = void 0;
+      i()(".js-menu-btn").on("click", function() {
+        i()(this).parent(".menu-list").toggleClass("is-active")
+      }),
+        g.on("scroll", function() {
+          n.i(h.m)() <= window.innerHeight ? (cancelAnimationFrame(v),
+            v = requestAnimationFrame(o)) : cancelAnimationFrame(v)
+        }),
+        i()(".js-live-btn").on("click", function() {
+          a()({
+            selector: "#live-scene",
+            duration: 400,
+            offset: n.i(u.isMobileUA)() ? 0 : 70
+          })
+        }),
+      n.i(u.isMobileUA)() || g.on("mousewheel", c)
+    };
+    t.a = p
+  }
+</script>
+
+</body>
+</html>
