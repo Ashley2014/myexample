@@ -21528,6 +21528,7 @@
           e.height = 16;
         var t = e.getContext("2d")
           , n = t.createRadialGradient(e.width / 2, e.height / 2, 0, e.width / 2, e.height / 2, e.width / 2);
+
         return n.addColorStop(0, "rgba(255, 255, 255, 0.75)"),
           n.addColorStop(.5, "rgba(255, 255, 255, 0.5)"),
           n.addColorStop(1, "rgba(0, 0, 0, 0)"),
@@ -21563,22 +21564,23 @@
           s()
       }
       function s() {
+        // console.log(m)
         d.a.update(),
           f.lookAt(m.position),
           _.render(m, f)
       }
       function c(e) {
-        "down" == (e.deltaY < 0 ? "down" : "up") && n.i(h.m)() <= 100 && (g.off("mousewheel", c),
-          g.on("mousewheel", p),
-          a()({
-            selector: "#report",
-            duration: 400,
-            offset: 70,
-            callback: function() {
-              g.on("mousewheel", c),
-                g.off("mousewheel", p)
-            }
-          }))
+        // "down" == (e.deltaY < 0 ? "down" : "up") && n.i(h.m)() <= 100 && (g.off("mousewheel", c),
+        //   g.on("mousewheel", p),
+        //   a()({
+        //     selector: "#report",
+        //     duration: 400,
+        //     offset: 70,
+        //     callback: function() {
+        //       g.on("mousewheel", c),
+        //         g.off("mousewheel", p)
+        //     }
+        //   }))
       }
       function p(e) {
         e.preventDefault()
@@ -21603,6 +21605,7 @@
           _.setClearColor(0),
           _.setPixelRatio(window.devicePixelRatio),
           _.setSize(window.innerWidth, window.innerHeight),
+
           i()("#banner").append(_.domElement),
           window.addEventListener("resize", e, !1)
       }(),
@@ -25547,6 +25550,7 @@
         , se = new Float32Array(8)
         , ue = []
         , le = [];
+
       this.domElement = F,
         this.context = null,
         this.autoClear = !0,
