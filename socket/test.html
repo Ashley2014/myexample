@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="https://cdn.bootcss.com/socket.io/2.0.3/socket.io.slim.js"></script>
+</head>
+<body>
+<button id="bt1">bullet emit</button>
+
+<script>
+  var socket = io('http://10.3.24.59:1234')
+  socket.on('connect', function (msg) {
+    // my msg
+    console.log(1,msg)
+  });
+  socket.on('connection', function (msg) {
+    // my msg
+    console.log(2,msg)
+  });
+  socket.on('bullet emit', function (msg) {
+    // my msg
+    console.log(3,msg)
+  });
+  socket.on('bullet action', function (msg) {
+    // my msg
+    console.log(4,msg)
+  });
+
+
+  socket.on('news', function (data) {
+    console.log('news',data);
+//    socket.emit('my other event', { my: 'data' });
+  });
+  socket.on('user connected', function (data) {
+    console.log('user connected',data);
+//    socket.emit('my other event', { my: 'data' });
+  });
+  socket.on('some event', function (data) {
+    console.log('some event',data);
+//    socket.emit('my other event', { my: 'data' });
+  });
+
+
+  var socket2 = io('http://10.3.24.67:3000')
+  socket2.on('test1', function (data) {
+    console.log('test1',data);
+//    socket.emit('my other event', { my: 'data' });
+  });
+
+
+
+
+  document.querySelector("#bt1").addEventListener('click',function () {
+    socket.emit('bullet emit', 'wwef');
+//    socket.send('hi');
+  },false)
+
+
+
+</script>
+</body>
+</html>
