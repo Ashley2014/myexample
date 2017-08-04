@@ -1,0 +1,35 @@
+{
+  "name": "ng2start",
+  "version": "1.0.0",
+  "description": "ng2start",
+  "scripts": {
+    "dev": "npm run server:dev",
+    "build": "npm run build:aot",
+    "build:prod": "npm run clean:dist && npm run webpack -- --config config/webpack.prod.js  --progress --profile --bail",
+    "server:prod": "http-server dist -c-1 --cors",
+    "server:dev:hmr": "npm run server:dev -- --inline --hot",
+    "server:dev": "npm run webpack-dev-server -- --config ./webpack.config.js --open --progress --profile --watch --content-base ./src/",
+    "webpack-dev-server": "node --max_old_space_size=4096 ../node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "webpack": "node --max_old_space_size=4096 ../node_modules/webpack/bin/webpack.js",
+    "clean:dist": "npm run rimraf -- dist",
+    "rimraf": "rimraf",
+    "build:aot": "npm run build:aot:prod",
+    "build:aot:prod": "npm run clean:dist && npm run clean:aot && cross-env BUILD_AOT=1 npm run webpack -- --config config/webpack.prod.js  --progress --profile --bail",
+    "clean:aot": "npm run rimraf -- compiled",
+    "start": "npm run server:dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ashley2014/ng2start.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ashley2014/ng2start/issues"
+  },
+  "homepage": "https://github.com/Ashley2014/ng2start#readme",
+  "dependencies": {
+    "echarts": "^3.6.2"
+  },
+  "devDependencies": {}
+}
