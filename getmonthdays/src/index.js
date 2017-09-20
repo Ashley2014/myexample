@@ -1,3 +1,4 @@
+console.log('114r4rr')
 //[几号，星期几]
 
 
@@ -44,9 +45,10 @@ function getMonthDaysEdge(year, month) {
 
     let firstDay=currentMonthdays[0]
 
+}
 
-
-
-
-
+if (module.hot) {
+  module.hot.accept('./print.js', function () {
+    console.log('Accepting the updated printMe module!');
+  })
 }
