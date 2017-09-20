@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 const webpack = require('webpack');
 
 module.exports = {
@@ -12,6 +14,10 @@ module.exports = {
     hot: true
   },
   plugins: [
+    new CopyWebpackPlugin([
+        { from: 'src/assets', to: 'assets' },
+      ],
+    ),
     new HtmlWebpackPlugin({
       title: 'Hot Module Replacement',
       filename: 'index.html',
