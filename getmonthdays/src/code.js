@@ -15,7 +15,7 @@ export function getMonthDays(year, month) {
   let daysArray = [];
   for (let i = 0;i < numDaysInMonth[month - 1]; i++) {
 
-    daysArray.push([(i + 1),index]);
+    daysArray.push([(i + 1),index,month,year]);
     index++
     // daysArray.push((i + 1) + '. ' + daysInWeek[index++]);
     // daysArray.push((i + 1));
@@ -33,6 +33,7 @@ export function getMonthDaysEdge(year, month) {
   year=Number(year)
   month=Number(month)
 
+
   let currentMonthdays = getMonthDays(year,month)
   let currentMonthdaysPrev = getMonthDays(year,month-1)
   let currentMonthdaysNext = getMonthDays(year,month+1)
@@ -40,12 +41,26 @@ export function getMonthDaysEdge(year, month) {
   let firstDay=currentMonthdays[0]
   let lastDay=currentMonthdays.slice(-1)[0]
 
-  let prevDays=7-firstDay[1]
-  let nextDays=7-lastDay[1]
+  let prevDays
+  if(firstDay[1]===0){
+    //firstday is sunday
+    prevDays=7
+  }else{
+    prevDays=firstDay[1]
+  }
+//calendar always 6*7=42
+  let nextDays=42-prevDays-currentMonthdays.length
+
+  // console.log(prevDays,nextDays)
+
+  let out=currentMonthdaysPrev.slice(-prevDays).concat(currentMonthdays).concat(currentMonthdaysNext.slice(0,nextDays))
 
 
 
-  return `${prevDays}:${nextDays}`
+
+  // console.log(out)
+
+  return out
 
 }
 
