@@ -65,6 +65,33 @@ export function getMonthDaysEdge(year, month) {
 }
 
 
+export function calThreeMonth(month, index){
+  var months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+  month = parseInt(month);
+  index = parseInt(index);
+  let monthPass = month >= 1 && month <= 12;
+  let indexPass = index >= 0 && index <= 2;
+  if (!monthPass) {
+    console.error(`require month >= 1 && month <= 12, but got ${month}`);
+    return;
+  }
+  if (!indexPass) {
+    console.error(`require index >= 0 && index <= 2, but got ${index}`);
+    return;
+  }
+  let i = months.indexOf(month) + 12;
+  let double = [].concat(months, months, months);
+  let three = double.slice(i - 1, i + 2); // 获取到被选月份的, [前一个月, 当前月, 后一个月]
+
+  let slide = [].concat(three, three, three);
+  let j = index * 2 + 1;
+  let ret = slide.slice(j, j + 3); // 当前月份在不同的位置是的排列方式;
+  return ret;
+
+}
+
+
 
 // export default class Calendar{
 //

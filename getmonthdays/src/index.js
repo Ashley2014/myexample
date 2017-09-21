@@ -1,4 +1,4 @@
-import {getMonthDays,getMonthDaysEdge} from './code'
+import {getMonthDays,getMonthDaysEdge,calThreeMonth} from './code'
 
 
 console.log('114r4rr')
@@ -26,6 +26,49 @@ describe("getMonthDaysEdge method", function() {
   it("2017.9 lastcalander should be 7.saturday", function() {
     expect(getMonthDaysEdge(2017,9)[41]).toEqual([7,6,10,2017]);
   });
+
+
+
+});
+describe("calThreeMonth method", function() {
+  it("put may at fir", function() {
+    expect(calThreeMonth(5,0)).toEqual([5,6,4]);
+  });
+  it("put may at sec", function() {
+    expect(calThreeMonth(5,1)).toEqual([4,5,6]);
+  });
+  it("put may at thr", function() {
+    expect(calThreeMonth(5,2)).toEqual([6,4,5]);
+  });
+
+  it("put jan at fir", function() {
+    expect(calThreeMonth(1,0)).toEqual([1,2,12]);
+  });
+  it("put jan at sec", function() {
+    expect(calThreeMonth(1,1)).toEqual([12,1,2]);
+  });
+
+  it("put jan at thr", function() {
+    expect(calThreeMonth(1,2)).toEqual([2,12,1]);
+  });
+
+  it("put dec at thr", function() {
+    expect(calThreeMonth(12,2)).toEqual([1,11,12]);
+  });
+
+  it("put dec at sec", function() {
+    expect(calThreeMonth(12,1)).toEqual([11,12,1]);
+  });
+
+  it("put dec at fir", function() {
+    expect(calThreeMonth(12,0)).toEqual([12,1,11]);
+  });
+
+
+
+  // it("2016.2 lastday should be 29.monday", function() {
+  //   expect(getMonthDays(2016,2)[28]).toEqual([29,1,2,2016]);
+  // });
 
 
 
