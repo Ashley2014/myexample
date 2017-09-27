@@ -5,6 +5,27 @@ console.log('114r4rr')
 // console.log(getMonthDaysEdge())
 //[几号，星期几]
 
+describe("data string compare method", function() {
+  it("'2012-1-2'>'2012-1-3' should be false", function() {
+    expect('2012-1-2'>'2012-1-3').toBe(false);
+  });
+  it("'2012-01-2'>'2012-1-3' should be false", function() {
+    expect('2012-01-2'>'2012-1-3').toBe(false);
+  });
+  it("'2012-01-2'>'2012-01-3' should be false", function() {
+    expect('2012-01-2'>'2012-01-3').toBe(false);
+  });
+  // it("'2012-1-2'>'2012-01-3' should be false", function() {
+  //   expect('2012-1-2'>'2012-01-3').toBe(true);
+  // });
+  it("'2012-10-2'>'2012-11-3' should be false", function() {
+    expect('2012-10-2'>'2012-11-3').toBe(false);
+  });
+  it("'2012-10-2'>'2012-9-3' should be true", function() {
+    expect('2012-10-02'>'2012-09-03').toBe(true);
+  });
+});
+
 describe("getmonthdays method", function() {
   it("2017.9 firstday should be 1.friday", function() {
     expect(getMonthDays(2017,9)[0]).toEqual([1,5,9,2017]);
@@ -26,8 +47,6 @@ describe("getMonthDaysEdge method", function() {
   it("2017.9 lastcalander should be 7.saturday", function() {
     expect(getMonthDaysEdge(2017,9)[41]).toEqual([7,6,10,2017]);
   });
-
-
 
 });
 describe("calThreeMonth method", function() {
