@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .circle,.c-w{
+            background-color: #ffff88;
+            -webkit-mask-image: url('http://7s1r2o.com1.z0.glb.clouddn.com/wedding/FtFbUOLDlGnwcvU_9PGi-dL6-WzZ.png-w750n');
+            -webkit-mask-size: 50px 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<svg class="circle"  style="width: 500px;height: 500px;">
+    <path id="arc1" fill="none" stroke="#edf0fb" stroke-width="20"  />
+    <path id="arc2" fill="none" stroke="#dcab55" stroke-width="20"  />
+</svg>
+
+<div class="c-w">
+    <canvas id="canvas"></canvas>
+</div>
+
+<script>
+    function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
+        var angleInRadians = (angleInDegrees-90) * Math.PI / 180.0;
+
+        return {
+            x: centerX + (radius * Math.cos(angleInRadians)),
+            y: centerY + (radius * Math.sin(angleInRadians))
+        };
+    }
+
+    function describeArc(x, y, radius, startAngle, endAngle){
+
+        var start = polarToCartesian(x, y, radius, endAngle);
+        var end = polarToCartesian(x, y, radius, startAngle);
+
+        var largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+
+        var d = [
+            "M", start.x, start.y,
+            "A", radius, radius, 0, largeArcFlag, 0, end.x, end.y
+        ].join(" ");
+
+        return d;
+    }
+
+
+
+    document.getElementById('arc1').setAttribute("d", describeArc(150, 150, 90, -150, 150));
+    document.getElementById('arc2').setAttribute("d", describeArc(150, 150, 90, -150, 60));
+
+    var ctx=document.getElementById('canvas').getContext('2d');
+    ctx.fillStyle='#ff8888'
+    ctx.fillRect(0,0,50,50)
+
+
+
+</script>
+</body>
+</html>
