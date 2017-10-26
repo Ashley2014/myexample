@@ -57,8 +57,6 @@ function makeSku(arr) {
 }
 
 
-
-
 function putInResult(arr,result) {
   // console.log('arr',arr)
   // console.log('result',result)
