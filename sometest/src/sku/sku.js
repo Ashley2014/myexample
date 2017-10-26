@@ -58,9 +58,58 @@ let expectResult=[
   },
 ]
 
+let expectResult2=[
+  {
+    name:'棉',
+    item:[
+      {
+        name:'m',item:[
+          {name:'白色',item:[]},
+          {name:'黑色',item:[]},
+        ]
+      },
+      {
+        name:'l',item:[
+          {name:'白色',item:[]},
+          {name:'黑色',item:[]},
+        ]
+      },
+      {
+        name:'s',item:[
+          {name:'白色',item:[]},
+          {name:'黑色',item:[]},
+        ]
+      },
+    ]
+  },
+  {
+    name:'涤纶',
+    item:[
+      {
+        name:'m',item:[
+          {name:'白色',item:[]},
+          {name:'黑色',item:[]},
+        ]
+      },
+      {
+        name:'l',item:[
+          {name:'白色',item:[]},
+          {name:'黑色',item:[]},
+        ]
+      },
+      {
+        name:'s',item:[
+          {name:'白色',item:[]},
+          {name:'黑色',item:[]},
+        ]
+      },
+    ]
+  },
+]
 
 
-function makeSku(arr) {
+
+function makeSku1(arr) {
   let out=[]
   let cache=arr.map(n=>false)
 
@@ -121,7 +170,7 @@ function makeSku(arr) {
 
 
 
-function makeSku2(arr) {
+function makeSku(arr) {
   let out=[]
   arr.forEach((spec,i)=>{
     putIn(spec,out,i)
@@ -142,16 +191,36 @@ function makeSku2(arr) {
 
 
 
+function makeSku2(arr) {
+  let out=[]
+  arr.forEach((spec,i)=>{
+    putIn(spec,out,i)
+  })
+  return out
+  function putIn(spec,result) {
+    result
+    if(!result.length){
+      spec.item.forEach(n=>{
+        result.push(Object.assign({},n,{item:[]}))
+      })
+    }else{
+      result.forEach((n)=>{
+        putIn(spec,n.item)
+      })
+    }
+  }
+}
 
 
-console.log(makeSku2(samples))
+
+
+
+console.log(makeSku(samples))
 
 describe("data string compare method", function() {
 
 
   // it("'test", function() {
-
-
 
     // expect(makeSku(samples)).toEqual(expectResult);
   // });
