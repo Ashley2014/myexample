@@ -221,17 +221,17 @@ console.log(2,f1sku)
 function flattenSku(arr) {
   let out=[]
   arr.forEach(n=>{
-    takeOut(n.item,out,[n.name])
+    takeOut(n.item,out,[n])
   })
   return out
   function takeOut(arr,result,names=[]) {
     // console.log(arr)
     arr.forEach(n=>{
       if(n.item.length){
-        takeOut(n.item,result,names.concat(n.name))
+        takeOut(n.item,result,names.concat(n))
       }else{
         result.push(Object.assign({},n,{
-          names:names.concat(n.name),
+          names:names.concat(n),
         }))
       }
     })
