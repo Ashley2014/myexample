@@ -60,56 +60,48 @@ let expectResult=[
 
 let expectResult2=[
   {
-    name:'棉',
-    item:[
-      {
-        name:'m',item:[
-          {name:'白色',item:[]},
-          {name:'黑色',item:[]},
-        ]
-      },
-      {
-        name:'l',item:[
-          {name:'白色',item:[]},
-          {name:'黑色',item:[]},
-        ]
-      },
-      {
-        name:'s',item:[
-          {name:'白色',item:[]},
-          {name:'黑色',item:[]},
-        ]
-      },
-    ]
+    name:['棉','m','白色',],
+    store:12,
+    cover:'sample',
   },
   {
-    name:'涤纶',
-    item:[
-      {
-        name:'m',item:[
-          {name:'白色',item:[]},
-          {name:'黑色',item:[]},
-        ]
-      },
-      {
-        name:'l',item:[
-          {name:'白色',item:[]},
-          {name:'黑色',item:[]},
-        ]
-      },
-      {
-        name:'s',item:[
-          {name:'白色',item:[]},
-          {name:'黑色',item:[]},
-        ]
-      },
-    ]
+    name:['棉','m','黑色',]
+  },
+  {
+    name:['棉','l','白色',]
+  },
+  {
+    name:['棉','l','黑色',]
+  },
+  {
+    name:['棉','s','白色',]
+  },
+  {
+    name:['棉','s','黑色',]
+  },
+  {
+    name:['涤纶','m','白色',]
+  },
+  {
+    name:['涤纶','m','黑色',]
+  },
+  {
+    name:['涤纶','l','白色',]
+  },
+  {
+    name:['涤纶','l','黑色',]
+  },
+  {
+    name:['涤纶','s','白色',]
+  },
+  {
+    name:['涤纶','s','黑色',]
   },
 ]
 
 
 
-function makeSku1(arr) {
+function makeSkutmp(arr) {
   let out=[]
   let cache=arr.map(n=>false)
 
@@ -159,15 +151,12 @@ function makeSku1(arr) {
 
   }
 
-
-
   function putInResult2(spec,result) {
     spec.item.forEach(n=>{
       result.push(Object.assign({},n,{item:[]}))
     })
   }
 }
-
 
 
 function makeSku(arr) {
@@ -180,6 +169,14 @@ function makeSku(arr) {
     if(!result.length){
       spec.item.forEach(n=>{
         result.push(Object.assign({},n,{item:[]}))
+        // result.push({
+        //   ...n,
+        //   item:[],
+        // });
+        // result.push({
+        //   ...JSON.parse(JSON.stringify(n)),
+        //   item:[],
+        // });
       })
     }else{
       result.forEach((n)=>{
@@ -194,7 +191,7 @@ function makeSku(arr) {
 function makeSku2(arr) {
   let out=[]
   arr.forEach((spec,i)=>{
-    putIn(spec,out,i)
+    putIn(spec,out)
   })
   return out
   function putIn(spec,result) {
@@ -215,7 +212,32 @@ function makeSku2(arr) {
 
 
 
-console.log(makeSku(samples))
+let r1sku=makeSku(samples)
+console.log('1',r1sku)
+let f1sku=flattenSku(r1sku)
+console.log(2,f1sku)
+
+
+function flattenSku(arr) {
+  let out=[]
+  arr.forEach(n=>{
+    takeOut(n.item,out,[n.name])
+  })
+  return out
+  function takeOut(arr,result,names=[]) {
+    // console.log(arr)
+    arr.forEach(n=>{
+      if(n.item.length){
+        takeOut(n.item,result,names.concat(n.name))
+      }else{
+        result.push(Object.assign({},n,{
+          names:names.concat(n.name),
+        }))
+      }
+    })
+  }
+}
+
 
 describe("data string compare method", function() {
 
