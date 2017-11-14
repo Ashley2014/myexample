@@ -14,6 +14,9 @@ switch (window.location.pathname) {
   case '/sku':
     import('./sku/sku')
     break
+  case '/end_loop':
+    import('./end_loop/end_loop')
+    break
 }
 
 
