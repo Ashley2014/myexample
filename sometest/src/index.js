@@ -17,6 +17,9 @@ switch (window.location.pathname) {
   case '/end_loop':
     import('./end_loop/end_loop')
     break
+  case '/filter':
+    import('./filter/')
+    break
 }
 
 
