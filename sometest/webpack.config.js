@@ -15,6 +15,25 @@ module.exports = {
     hot: true,
     open: true
   },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader:require.resolve('babel-loader'),
+          options: {
+            // cacheDirectory: true,
+            presets: [
+              "env",
+            ],
+            // "plugins": ["transform-runtime"],
+            plugins: ["transform-object-rest-spread"]
+          }
+        }
+      }
+    ]
+  },
   plugins: [
     new CopyWebpackPlugin([
         { from: 'src/assets', to: 'assets' },
@@ -29,6 +48,7 @@ module.exports = {
   ],
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: "/",
   }
 };

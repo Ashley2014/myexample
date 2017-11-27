@@ -9,18 +9,23 @@ if (module.hot) {
 }
 
 
-
+console.log(window.location.pathname)
 switch (window.location.pathname) {
   case '/sku':
-    import('./sku/sku')
+    require('./sku/sku')
     break
   case '/end_loop':
-    import('./end_loop/end_loop')
+    require('./end_loop/end_loop')
     break
   case '/filter':
-    import('./filter/')
+    require('./filter/')
     break
+  case '/es7/object_map':
+    require('./es7/object_map')
+    break
+
 }
+
 
 
 
