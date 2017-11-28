@@ -12,16 +12,16 @@ if (module.hot) {
 console.log(window.location.pathname)
 switch (window.location.pathname) {
   case '/sku':
-    require('./sku/sku')
+    import('./sku/sku')
     break
   case '/end_loop':
-    require('./end_loop/end_loop')
+    import('./end_loop/end_loop')
     break
   case '/filter':
-    require('./filter/')
+    import('./filter/')
     break
   case '/es7/object_map':
-    require('./es7/object_map')
+    import('./es7/object_map')
     break
 
 }

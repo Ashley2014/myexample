@@ -31,5 +31,9 @@
     "html-webpack-plugin": "^2.30.1",
     "webpack": "^3.7.1",
     "webpack-dev-server": "^2.9.2"
+  },
+  "devDependencies": {
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
   }
 }

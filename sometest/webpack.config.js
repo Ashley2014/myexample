@@ -25,10 +25,10 @@ module.exports = {
           options: {
             // cacheDirectory: true,
             presets: [
-              "env",
+              ["env",{ "modules": false }],
             ],
             // "plugins": ["transform-runtime"],
-            plugins: ["transform-object-rest-spread"]
+            plugins: ["transform-object-rest-spread","syntax-dynamic-import"]
           }
         }
       }
