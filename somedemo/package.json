@@ -24,7 +24,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "circlr": "^3.1.1"
+    "circlr": "^3.1.1",
+    "jquery": "^3.2.1"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^4.2.3",

@@ -20,6 +20,9 @@ switch (window.location.pathname) {
   case '/filter':
     import('./filter/')
     break
+  case '/filter/mutil_filter':
+    import('./filter/mutil_filter')
+    break
   case '/es7/object_map':
     import('./es7/object_map')
     break
