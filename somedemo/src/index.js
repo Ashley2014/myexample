@@ -11,7 +11,13 @@ console.log(window.location.pathname)
 switch (window.location.pathname) {
   case '/circlr':
     import('./circlr')
-    break
+    break;
+  case '/scroll_nav':
+    import('./scroll_nav')
+    break;
+  case '/html_loader':
+    import('./html_loader')
+    break;
 
 }
 
