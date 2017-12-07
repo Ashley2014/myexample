@@ -18,6 +18,9 @@ switch (window.location.pathname) {
   case '/html_loader':
     import('./html_loader')
     break;
+  case '/print':
+    import('./print')
+    break;
 
 }
 
