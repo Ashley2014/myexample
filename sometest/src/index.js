@@ -26,6 +26,9 @@ switch (window.location.pathname) {
   case '/es7/object_map':
     import('./es7/object_map')
     break
+  case '/es7/async':
+    import('./es7/async')
+    break
 
 }
 
