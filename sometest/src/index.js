@@ -29,6 +29,9 @@ switch (window.location.pathname) {
   case '/es7/async':
     import('./es7/async')
     break
+  case '/uniq/uniq':
+    import('./uniq/uniq')
+    break
 
 }
 
