@@ -5,7 +5,7 @@
   "main": "getmonthdays.js",
   "scripts": {
     "dev": "npm run server:dev",
-    "build": "npm run build:aot",
+    "build": "npm run webpack -- --config webpack.prod.config.js",
     "build:prod": "npm run clean:dist && npm run webpack -- --config config/webpack.prod.js  --progress --profile --bail",
     "server:prod": "http-server dist -c-1 --cors",
     "server:dev:hmr": "npm run server:dev -- --inline --hot",
