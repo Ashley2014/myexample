@@ -32,6 +32,9 @@ switch (window.location.pathname) {
   case '/uniq/uniq':
     import('./uniq/uniq')
     break
+  case '/decorator':
+    import('./decorator')
+    break
 
 }
 

@@ -26,9 +26,10 @@ module.exports = {
             // cacheDirectory: true,
             presets: [
               ["env",{ "modules": false }],
+              // "stage-2",
             ],
             // "plugins": ["transform-runtime"],
-            plugins: ["transform-object-rest-spread","syntax-dynamic-import"]
+            plugins: ["transform-object-rest-spread","syntax-dynamic-import","transform-decorators-legacy"]
           }
         }
       }
