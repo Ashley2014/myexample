@@ -24,11 +24,14 @@ module.exports = {
           loader:require.resolve('babel-loader'),
           options: {
             // cacheDirectory: true,
+            // presets: ['es2015',{ "modules": false }],
+            // plugins: ['transform-runtime']
             presets: [
               ["env",{ "modules": false }],
-              // "stage-2",
+            //   ["es2015"],
+            //   // "stage-2",
             ],
-            // "plugins": ["transform-runtime"],
+            // // "plugins": ["transform-runtime"],
             plugins: ["transform-object-rest-spread","syntax-dynamic-import","transform-decorators-legacy"]
           }
         }
