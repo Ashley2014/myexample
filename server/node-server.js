@@ -75,6 +75,32 @@ var server = http.createServer(function(req, res) {
       res.end('get simple api received');
 
     }
+  }else if(req.url=='/ssimple/api'){
+
+    console.log("/ssimple/api ");
+
+    if (req.method == 'POST') {
+      console.log("POST");
+      var body = '';
+      req.on('data', function (data) {
+        body += data;
+        console.log("Partial body: " + body);
+
+        res.end(JSON.stringify({
+          msg:'post received simple api',
+          data:body
+        }));
+      });
+      // req.on('end', function () {
+      //   console.log("Body: " + body);
+      // });
+      // res.writeHead(200, {'Content-Type': 'text/html'});
+
+
+    }else{
+      res.end('get simple api received');
+
+    }
   }
 
 

@@ -4,6 +4,11 @@ class aaa {
   }
 }
 
+class bbb extends aaa {
+  static async tt(){
+    console.log(this)
+  }
+}
 
 ccc={
   fun(){
@@ -13,3 +18,4 @@ ccc={
 
 console.log(3435435)
 console.log(window.localStorage)
+new bbb().bbb()

@@ -29,10 +29,10 @@ module.exports = {
             presets: [
               ["env",{ "modules": false }],
             //   ["es2015"],
-            //   // "stage-2",
+              "stage-2",
             ],
             // // "plugins": ["transform-runtime"],
-            plugins: ["transform-object-rest-spread","syntax-dynamic-import","transform-decorators-legacy"]
+            plugins: ["transform-decorators-legacy"]
           }
         }
       }
