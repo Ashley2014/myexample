@@ -4,22 +4,30 @@ var Router = require('koa-router');
 var app = new Koa();
 var router = new Router();
 
-router.get('/aa', (ctx, next) => {
+
+router.get('/aa', async (ctx, next) => {
   // ctx.router available
   ctx.body = 'aaa';
   next()
+
+  // await new Promise(resolve => {
+  //   setTimeout(e => {
+  //     console.log(33333333333333)
+  //     resolve()
+  //   }, 2000)
+  // })
+
 });
 
 app
   .use(router.routes())
   .use(router.allowedMethods());
-
 // x-response-time
 
 app.use(async (ctx, next) => {
   const start = Date.now();
-  ctx.body = '';
-  next();
+  ctx.body = '66';
+  // next();
 
   await new Promise(resolve => {
     setTimeout(e => {
@@ -40,11 +48,11 @@ app.use(async (ctx, next) => {
 app.use(async (ctx, next) => {
   const start = Date.now();
   ctx.body = '33333';
-  await new Promise(resolve => {
-    setTimeout(e => {
-      resolve()
-    }, 5000)
-  })
+  // await new Promise(resolve => {
+  //   setTimeout(e => {
+  //     resolve()
+  //   }, 5000)
+  // })
   await next();
   const ms = Date.now() - start;
   if (ctx.url == '/') {

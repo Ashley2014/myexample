@@ -38,6 +38,12 @@ switch (window.location.pathname) {
   case '/decorator':
     import('./decorator')
     break
+  case '/decorator/example':
+    import('./decorator/example')
+    break
+  case '/decorator/classdecorator':
+    import('./decorator/classdecorator')
+    break
   case '/function/dot':
     import('./function/dot')
     break
