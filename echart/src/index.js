@@ -75,32 +75,64 @@ var option1 = {
   ]
 };
 
-var currentLoc = 0;
-setInterval(function () {
-  myChart.setOption({
-    series: [{
-      center: locations[currentLoc].coord,
-      zoom: 4,
-      data:[
-        {name: locations[currentLoc].name, selected: true}
-      ],
-      animationDurationUpdate: 1000,
-      animationEasingUpdate: 'cubicInOut'
-    }]
-  });
-  currentLoc = (currentLoc + 1) % locations.length;
-}, 2000);
+// var currentLoc = 0;
+// setInterval(function () {
+//   myChart.setOption({
+//     series: [{
+//       center: locations[currentLoc].coord,
+//       zoom: 4,
+//       data:[
+//         {name: locations[currentLoc].name, selected: true}
+//       ],
+//       animationDurationUpdate: 1000,
+//       animationEasingUpdate: 'cubicInOut'
+//     }]
+//   });
+//   currentLoc = (currentLoc + 1) % locations.length;
+// }, 2000);
 
+let option4 = {
+  backgroundColor: '#fff',
+  tooltip: {
+    trigger: 'item',
+    formatter: '{b}'
+  },
+
+  series: [
+    {
+      name: '中国',
+      type: 'map',
+      mapType: 'china',
+      selectedMode : 'multiple',
+      label: {
+        normal: {
+          show: true
+        },
+        emphasis: {
+          show: true
+        }
+      },
+      itemStyle: {
+        normal: {
+          // areaColor: '#323c48',
+          borderColor: 'rgba(0,0,0,0)'
+        },
+        emphasis: {
+          // areaColor: '#2a333d'
+        }
+      },
+      data:[
+        // {name:'广东', selected:true}
+      ]
+    }
+  ]
+};
 
 // 绘制图表
-myChart.setOption(option1);
-
-
+myChart.setOption(option4);
 
 
 
 if (module.hot) {
-  module.hot.accept('./print.js', function () {
-    console.log('Accepting the updated printMe module!');
-  })
+  module.hot.accept();
 }
