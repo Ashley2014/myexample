@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="file" id="up">
+
+
+<script>
+
+    document.querySelector('#up').addEventListener('change',function () {
+        console.log(this.files[0])
+
+        const formData = new FormData();
+        formData.append('token', 'rtgtr');
+        formData.append('file', this.files[0]);
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == 4) {
+                const isSuccess = (xhr.status >= 200 && xhr.status < 300) || xhr.status == 304;
+                if (isSuccess) {
+                    this.showSuccess(responseText);
+                } else {
+                    alert(`Request war unsuccessful: ${xhr.status}`);
+                }
+            }
+        };
+        xhr.open('POST', 'http://up.qiniu.com', true);
+//        xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+        xhr.send(formData);
+    })
+
+
+
+
+</script>
+</body>
+</html>

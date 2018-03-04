@@ -1,0 +1,21 @@
+*{
+  overflow: visible;
+
+}
+* {
+
+}
+div {
+  -webkit-print-color-adjust: exact !important;   /* Chrome, Safari */
+  color-adjust: exact !important;                 /*Firefox*/
+  /*background-image: url("./images/sample2.jpg");*/
+  /*background-image: url("http://shop-static.halobear.com/cang/Fi68GCtetSyPmZ7HL_FCprowoaGY.jpg-w750n");*/
+}
+img {
+  /*visibility: hidden;*/
+  /*page-break-inside: auto;*/
+  /*Prevent images from being split up*/
+}
+@media print {
+
+}

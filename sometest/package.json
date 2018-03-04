@@ -1,0 +1,43 @@
+{
+  "name": "getmonthdays",
+  "version": "1.0.0",
+  "description": "",
+  "main": "getmonthdays.js",
+  "scripts": {
+    "dev": "npm run server:dev",
+    "build": "npm run webpack -- --config webpack.prod.config.js",
+    "build:prod": "npm run clean:dist && npm run webpack -- --config config/webpack.prod.js  --progress --profile --bail",
+    "server:prod": "http-server dist -c-1 --cors",
+    "server:dev:hmr": "npm run server:dev -- --inline --hot",
+    "server:dev": "npm run webpack-dev-server -- --config ./webpack.config.js",
+    "webpack-dev-server": "node --max_old_space_size=4096 ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "webpack": "node --max_old_space_size=4096 ./node_modules/webpack/bin/webpack.js",
+    "clean:dist": "npm run rimraf -- dist",
+    "rimraf": "rimraf",
+    "jasmine": "node ./node_modules/jasmine/bin/jasmine.js",
+    "build:aot": "npm run build:aot:prod",
+    "build:aot:prod": "npm run clean:dist && npm run clean:aot && cross-env BUILD_AOT=1 npm run webpack -- --config config/webpack.prod.js  --progress --profile --bail",
+    "clean:aot": "npm run rimraf -- compiled",
+    "start": "npm run server:dev",
+    "test": "npm run jasmine"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "copy-webpack-plugin": "^4.1.1",
+    "html-webpack-plugin": "^2.30.1",
+    "webpack": "^3.7.1",
+    "webpack-dev-server": "^2.9.2"
+  },
+  "devDependencies": {
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
+  }
+}
