@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>File(s) size</title>
+</head>
+
+<body >
+<form name="uploadForm">
+  <input type="file" id="fileElem" multiple accept="image/*"  >
+
+</form>
+
+
+<script>
+document.getElementById('fileElem').addEventListener('change',function () {
+  console.log(this.files)
+  let reader = new FileReader();
+  reader.readAsArrayBuffer(this.files[0]);
+
+  reader.onload = function () {
+    console.log(reader.result)
+
+  };
+})
+</script>
+</body>
+</html>
