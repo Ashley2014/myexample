@@ -5,10 +5,12 @@ var app = new Koa();
 var router = new Router();
 
 
-router.get('/aa', async (ctx, next) => {
+router.post('/aa', async (ctx, next) => {
   // ctx.router available
+  let postData=ctx.request.body
+  console.log(22,postData)
   ctx.body = 'aaa';
-  next()
+  return
 
   // await new Promise(resolve => {
   //   setTimeout(e => {
@@ -26,6 +28,7 @@ app
 
 app.use(async (ctx, next) => {
   const start = Date.now();
+
   ctx.body = '66';
   // next();
 
