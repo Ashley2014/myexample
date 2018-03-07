@@ -13,15 +13,20 @@
 
 
 <script>
-document.getElementById('fileElem').addEventListener('change',function () {
+document.getElementById('fileElem').addEventListener('change',async function () {
   console.log(this.files)
+
   let reader = new FileReader();
-  reader.readAsArrayBuffer(this.files[0]);
-
-  reader.onload = function () {
-    console.log(reader.result)
-
-  };
+  reader.readAsArrayBuffer(opts.file); //read file as ArrayBuffer
+  let sha1_hash= await new Promise(resolve=>{
+    reader.onload = function (f) {
+      let file_result = this.result; // this == reader, get the loaded file "result"
+      let file_wordArr = CryptoJS.lib.WordArray.create(file_result); //convert blob to WordArray , see https://code.google.com/p/crypto-js/issues/detail?id=67
+      let sha1_hash = CryptoJS.SHA1(file_wordArr); //calculate SHA1 hash
+      // alert("Calculated SHA1:" + sha1_hash.toString()); //output result
+      resolve(sha1_hash)
+    };
+  });
 })
 </script>
 </body>
