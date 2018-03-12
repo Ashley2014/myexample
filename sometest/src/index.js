@@ -47,6 +47,9 @@ switch (window.location.pathname) {
   case '/function/dot':
     import('./function/dot')
     break
+  case '/json/covert':
+    import('./json/covert')
+    break
 
 }
 

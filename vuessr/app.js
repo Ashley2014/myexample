@@ -33,7 +33,8 @@ var uploadFolder = './uploads/';
 var upload = multer({ storage: storage })
 
 app.post('/profile', upload.single('ssrjson'), function (req, res, next) {
-  console.log(req.file)
+
+  console.log(req.file,req.query.project)
   res.send(req.file);
   // req.file is the `avatar` file
   // req.body will hold the text fields, if there were any
