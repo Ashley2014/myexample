@@ -46,6 +46,7 @@ console.log(found);
 
 var myStr='"{"tenantCode":"880001","conditionList":[{"salePriceStart":"${goodsprice_0}","salePriceEnd":"${goodsprice_1}","brandCode":["${goodsbrand}"],"itemAttributeValueCodeList":["${goodsattr}"],"saleAttributeValueCodeList":["${saleattr}"],"categoryCodeList":["${goodsptn}"]}], ↵"page":{"page":1,"size":50} ↵}"'
 console.log(getMatch(myStr))
+console.log(getMatch(str2))
 
 function getMatch(str) {
   var re = /\$\{([\w]*)\}/;
