@@ -50,6 +50,9 @@ switch (window.location.pathname) {
   case '/json/covert':
     import('./json/covert')
     break
+  case '/reg/regmatch':
+    import('./reg/regmatch')
+    break
 
 }
 
