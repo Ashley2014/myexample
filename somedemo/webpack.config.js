@@ -13,6 +13,7 @@ module.exports = {
     contentBase: './dist',
     historyApiFallback: true,
     host: '0.0.0.0',
+    port: '1112',
     hot: true,
     open: true
   },
@@ -42,7 +43,11 @@ module.exports = {
       {
         test: /\.css$/,
         use: [ 'style-loader', 'css-loader' ]
-      }
+      },
+      {
+        test: /\.less$/,
+        use: [ 'style-loader', 'css-loader', 'less-loader' ]
+      },
     ]
   },
   plugins: [

@@ -5,13 +5,13 @@ if (module.hot) {
     console.log('Accepting the updated printMe module!');
   })
 }
-
+import './a.less'
 
 console.log(window.location.pathname)
 switch (window.location.pathname) {
-  case '/circlr':
-    import('./circlr')
-    break;
+  // case '/circlr':
+  //   import('./circlr')
+  //   break;
   case '/scroll_nav':
     import('./scroll_nav')
     break;
