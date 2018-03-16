@@ -20,6 +20,7 @@ var server = http.createServer(function(req, res) {
           data:body
         }));
       });
+
       // req.on('end', function () {
       //   console.log("Body: " + body);
       // });
@@ -46,9 +47,9 @@ var server = http.createServer(function(req, res) {
           data:body
         }));
       });
-      // req.on('end', function () {
-      //   console.log("Body: " + body);
-      // });
+      req.on('end', function () {
+        console.log("Body: " + body);
+      });
       // res.writeHead(200, {'Content-Type': 'text/html'});
 
 

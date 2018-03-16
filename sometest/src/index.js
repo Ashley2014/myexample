@@ -7,6 +7,9 @@ if (module.hot) {
     console.log('Accepting the updated printMe module!');
   })
 }
+import a from './app.bundle'
+
+console.log(a)
 
 
 console.log(window.location.pathname)
