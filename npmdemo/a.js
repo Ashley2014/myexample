@@ -1,1 +1,1 @@
-console.log(self)
+console.log(require('./dist/app.bundle'))

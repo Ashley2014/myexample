@@ -56,6 +56,9 @@ switch (window.location.pathname) {
   case '/reg/regmatch':
     import('./reg/regmatch')
     break
+  case '/rescursion/rescursion':
+    import('./rescursion/rescursion')
+    break
 
 }
 
