@@ -59,6 +59,9 @@ switch (window.location.pathname) {
   case '/rescursion/rescursion':
     import('./rescursion/rescursion')
     break
+  case '/birthday/getMonthDays':
+    import('./birthday/getMonthDays')
+    break
 
 }
 
