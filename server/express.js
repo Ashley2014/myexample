@@ -4,6 +4,8 @@ var app = express();
 
 app.get(`/*`, (req, res) => {
   let rr=req;
+  delete require.cache[require.resolve('./test.json')]
+  console.log(111,require('./test.json'))
 
 
   if (req.method == 'POST') {
