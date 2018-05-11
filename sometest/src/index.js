@@ -11,7 +11,6 @@ import a from './app.bundle'
 
 console.log(a)
 
-
 console.log(window.location.pathname)
 switch (window.location.pathname) {
   case '/sku':
@@ -65,6 +64,9 @@ switch (window.location.pathname) {
     break
   case '/rescursion/rescursion':
     import('./rescursion/rescursion')
+    break
+  case '/rescursion/object':
+    import('./rescursion/object')
     break
   case '/birthday/getMonthDays':
     import('./birthday/getMonthDays')
