@@ -7,9 +7,6 @@ if (module.hot) {
     console.log('Accepting the updated printMe module!');
   })
 }
-import a from './app.bundle'
-
-console.log(a)
 
 console.log(window.location.pathname)
 switch (window.location.pathname) {
@@ -18,8 +15,10 @@ switch (window.location.pathname) {
     break
   case '/sku2':
     import('./sku/sku2')
+    break
   case '/sku3':
     import('./sku/sku3')
+    break
   case '/sku4':
     import('./sku/sku4')
     break
@@ -31,6 +30,12 @@ switch (window.location.pathname) {
     break
   case '/filter/mutil_filter':
     import('./filter/mutil_filter')
+    break
+  case '/object/objDepth':
+    import('./object/objDepth')
+    break
+  case '/object/defineProperty':
+    import('./object/defineProperty')
     break
   case '/es7/object_map':
     import('./es7/object_map')
