@@ -6,7 +6,12 @@ const filePath = path.resolve(__dirname, '../../tmp/component')
 const templateFile = path.resolve(__dirname, './template.vue')
 
 generateJs(filePath, templateFile, {
-  num: 10,
+  num: 100,
+  async: true,
+})
+generateJs(filePath, templateFile, {
+  num: 100,
+  async: false,
 })
 
 
@@ -25,10 +30,10 @@ function generateJs(filePath, templateFile, {num,async}) {
       content: `${i}`
     });
 
-    let file=path.join(filePath, `my-com-${i}.vue`)
+    let file=path.join(filePath, async?`my-async-com-${i}.vue`:`my-sync-com-${i}.vue`)
     fse.outputFileSync(file, str)
     return {
-      componentName:`my-com-${i}`,
+      componentName:async?`my-async-com-${i}`:`my-sync-com-${i}`,
       path:file,
     }
   })
@@ -48,7 +53,7 @@ function generateExportJs(filePath, files, {async}) {
   }
 
 
-  fse.outputFileSync(path.join(filePath, `index.js`), start+str+end)
+  fse.outputFileSync(path.join(filePath, async?`index-async.js`:`index-sync.js`), start+str+end)
 
 }
 

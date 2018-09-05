@@ -11,7 +11,8 @@
         content:'#content#',
       }
     },
-    created() {
+    mounted() {
+      console.log(`number '#content#' component mounted`)
 
     }
   }
